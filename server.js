@@ -35,14 +35,16 @@ const transporter = nodemailer.createTransport({
   host: "smtp.office365.com",
   port: 587,
   secure: false,
+  requireTLS: true,
   auth: {
     user: process.env.MY_EMAIL,
     pass: process.env.MY_PASSWORD,
   },
   tls: {
-    rejectUnauthorized: false
+    ciphers: "SSLv3"
   }
 });
+
 
 // ===============================
 // ✅ Root Route
